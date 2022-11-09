@@ -1,2 +1,2 @@
-# ClassHomework
-The homeworks fo classes
+# ClassWork
+The homeworks and tests fo classes
