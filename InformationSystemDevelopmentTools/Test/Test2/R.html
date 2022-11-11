@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册页面</title>
+		<style>
+			body {
+				margin: 20px 40px;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			#main {
+				height: 25px;
+				width: 640px;
+				line-height: 25px;
+			}
+
+			#main>span {
+				float: left;
+				color: #59AFE4;
+				font-size: 20px;
+				margin-right: 5px;
+			}
+
+			table {
+				line-height: 40px;
+				margin-top: 20px;
+			}
+
+			table td>div {
+				height: 22px;
+				font-size: 14px;
+				line-height: 22px;
+			}
+
+			table span,
+			a {
+				float: left;
+				height: 22px;
+				color: #59AFE4;
+				line-height: 22px;
+			}
+
+			table th {
+				width: 90px;
+				height: 40px;
+				font-size: 15px;
+				padding: 0 10px;
+				text-align: right;
+				line-height: 40px;
+				font-weight: normal;
+			}
+
+			table td {
+				width: 320px;
+				height: 40px;
+				text-align: left;
+				line-height: 40px;
+			}
+
+			table input {
+				width: 300px;
+				height: 30px;
+				text-align: left;
+				line-height: 30px;
+				border-radius: 5px;
+				font-weight: normal;
+				border-style: groove;
+				border-color: lightgray;
+				background-color: #f3f9fe;
+			}
+
+			table input:focus {
+				background-color: #FFF;
+				border-color: #59AFE4;
+			}
+
+			table input[type="radio"] {
+				width: 15px;
+				height: 15px;
+			}
+
+			table select {
+				height: 24px;
+				color: #59AFE4;
+			}
+
+			table option {
+				height: 24px;
+				color: #000;
+			}
+
+			table input[type="checkbox"] {
+				width: 15px;
+				height: 15px;
+			}
+
+			table input[type="button"] {
+				color: #FFF;
+				width: 180px;
+				height: 60px;
+				font-size: 24px;
+				font-weight: bold;
+				line-height: 60px;
+				text-align: center;
+				border-radius: 10px;
+				border-style: initial;
+				background-image: linear-gradient(#a5e486, #59ad42);
+			}
+		</style>
+      <link rel="icon" href="./images/title.png" type="image/png">
+	</head>
+	<body>
+		<div id="main">
+			<span>|</span>
+			<div>注册账号</div>
+			<hr color="#DDD" />
+		</div>
+		<table>
+			<tr>
+				<th>用户名</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>密码</th>
+				<td><input type="password" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>确认密码</th>
+				<td><input type="password" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>性别</th>
+				<td>
+					<input type="radio" name="sex" value="1" checked="checked" /> 男
+					&ensp;&ensp;&ensp;<input type="radio" name="sex" value="0" /> 女
+				</td>
+				<td></td>
+			</tr>
+            <tr>
+				<th>爱好（多选）</th>
+				<td>
+                  <select style="width: 60px;">
+						<option value="公历">无</option>
+						<option value="农历">游泳</option>
+                        <option value="农历">打羽毛球</option>
+                        <option value="农历">跑步</option>
+                  </select>
+                  <select style="width: 60px;">
+                        <option value="公历">无</option>
+						<option value="农历">游泳</option>
+                        <option value="农历">打羽毛球</option>
+                        <option value="农历">跑步</option>
+					</select>
+                  <select style="width: 60px;">
+                        <option value="公历">无</option>
+						<option value="农历">游泳</option>
+                        <option value="农历">打羽毛球</option>
+                        <option value="农历">跑步</option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>生日</th>
+				<td>
+					<select style="width: 60px;">
+						<option value="公历">公历</option>
+						<option value="农历">农历</option>
+					</select>
+
+					<select style="width: 100px;">
+						<option value="disabled">年</option>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+					</select>
+					<select style="width: 60px;">
+						<option value="disabled">月</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+					<select style="width: 60px;">
+						<option name="" value="disabled">日</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>所在地</th>
+				<td>
+					<select style="width: 95px;">
+						<option value="中国">中国</option>
+						<option value="美国">美国</option>
+						<option value="韩国">韩国</option>
+						<option value="俄罗斯">俄罗斯</option>
+						<option value="新加坡">新加坡</option>
+						<option value="意大利">意大利</option>
+						<option value="泰国">泰国</option>
+					</select>
+					<select style="width: 95px;">
+						<option value="北京">北京</option>
+						<option value="湖南">湖南</option>
+						<option value="湖北">湖北</option>
+						<option value="上海">上海</option>
+						<option value="重庆">重庆</option>
+						<option value="天津">天津</option>
+						<option value="海南">海南</option>
+					</select>
+					<select style="width: 95px;">
+						<option value="东城">东城</option>
+						<option value="平谷">平谷</option>
+						<option value="西城">西城</option>
+						<option value="朝阳">朝阳</option>
+						<option value="大兴">大兴</option>
+						<option value="昌平">昌平</option>
+						<option value="石景山">石景山</option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+          <tr>
+				<th style="height: 120px;">个人简介</th>
+				<td>
+					<input type="text" style="width: 180px; height: 100px;">
+				</td>
+			</tr>
+			<tr>
+				<th style="height: 60px;">验证码</th>
+				<td>
+					<input type="text" style="width: 180px; height: 54px;">
+					<img src="1.jpg" style="height: 60px; float: right;" />
+				</td>
+				<td>
+					<span>
+						<a href="#" style="line-height: 60px;">点击换一张</a>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>
+					<input type="checkbox" checked="checked" />我已阅读并同意相关服务条款和隐私政策
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>
+					<input type="button" value="注册" />
+                  <input type="button" value="取消" />
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>
