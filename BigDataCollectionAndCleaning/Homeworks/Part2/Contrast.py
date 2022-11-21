@@ -1,6 +1,4 @@
-import sys
 import urllib.request as request
-from http.client import *
 import re
 import time
 from urllib.error import URLError, HTTPError, ContentTooShortError
@@ -62,7 +60,14 @@ def lxml_xpath_scraper(html):
         results[field] = td.text_content()
     return results
 
-def Write(row):
+def WriteTitle(row):
+    fp=open('./data/countries_or_districts.csv','w',encoding='utf-8',newline='')
+    # print(row)
+    writer = csv.writer(fp)
+    writer.writerow(row)
+    fp.close()
+
+def WriteData(row):
     fp=open('./data/countries_or_districts.csv','a+',encoding='utf-8',newline='')
     # print(row)
     writer = csv.writer(fp)
@@ -87,7 +92,7 @@ def scrape_callback(url,html,scrapers,t):
             end = time.time()
             t[name]=t[name]+end-start
             print('Loading '+name+':'+'%.2f'%t[name])
-        Write(all_row)
+        WriteData(all_row)
 
 def link_crawler(start_url,link_regex,t,scrape_callback=None):
     crawl_queue = [start_url]
@@ -128,14 +133,17 @@ def download(url:str,user_agent='wswp',num_retries=2,charest='utf-8'):
     print('Downloading:', url)
     http_request = request.Request(url)
     http_request.add_header(key='User-agent', val=user_agent)
+
     try:
         response = request.urlopen(http_request, timeout=30)
         html = response.read().decode(encoding='UTF-8')
     except(URLError, HTTPError, ContentTooShortError) as e:
+
         print('Download error:', e.reason)
         if hasattr(e, 'code'):
             print('Error code', e.code)
         html = None
+
         if num_retries > 0:
             if hasattr(e, 'code') and (500 <= e.code < 600):
                 delay = 2
@@ -143,12 +151,13 @@ def download(url:str,user_agent='wswp',num_retries=2,charest='utf-8'):
                 time.sleep(delay)
                 print('Retry to download.')
                 return download(url, user_agent=user_agent, num_retries=num_retries - 1)
+
     return html
 
 
 url = 'http://180.201.165.235:8000/places'
 regex = '/places/default/(index|view)/'
-Write(FIELDS)
+WriteTitle(FIELDS)
 datalist=[]
 t={'Regular expressions':0,
    'BeautifulSoup':0,
@@ -156,6 +165,7 @@ t={'Regular expressions':0,
    'XPath':0}
 start=time.time()
 t=link_crawler(url, regex, t,scrape_callback=scrape_callback)
+
 for key,values in t.items():
     print('Total '+key+': '+'%.2f'%values)
 end=time.time()

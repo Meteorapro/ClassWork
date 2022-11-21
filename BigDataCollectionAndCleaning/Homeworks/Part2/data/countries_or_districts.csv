@@ -1,0 +1,5 @@
+area,population,iso,country_or_district,capital,continent,tld,currency_code,currency_name,phone,postal_code_format,postal_code_regex,languages,neighbours
+390580 square kilometres,11651858,ZW,Zimbabwe,Harare,AF,.zw,ZWL,Dollar,263,,,"en-ZW,sn,nr,nd",ZA MZ BW ZM 
+752614 square kilometres,13460305,ZM,Zambia,Lusaka,AF,.zm,ZMW,Kwacha,260,#####,^(\d{5})$,"en-ZM,bem,loz,lun,lue,ny,toi",ZW TZ MZ CD NA MW AO 
+527970 square kilometres,23495361,YE,Yemen,Sanaa,AS,.ye,YER,Rial,967,,,ar-YE,SA OM 
+266000 square kilometres,273008,EH,Western Sahara,El-Aaiun,AF,.eh,MAD,Dirham,212,,,"ar,mey",DZ MR MA 
