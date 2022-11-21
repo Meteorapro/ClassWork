@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登陆</title>
+    <style type="text/css">
+        body,td,th{
+            color: darkgrey;
+        }
+        h1{
+            background-color: #a5e486;
+        }
+        .login{
+            background-color: aqua;
+            margin: 200px auto;
+            height: 200px;
+            width: 300px;
+            font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", Serif;
+            font-size: 12px;
+            color: #EF0509;
+            box-shadow: 10px 10px 5px blue;
+            border-radius: 10px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            display: block;
+            margin: 10px auto;
+        }
+        input[type='submit']:hover{
+
+            cursor: pointer;
+            background-color: blueviolet;
+        }
+    </style>
+    <script>
+        function check(){
+            if (document.getElementById("").value=="")
+            {
+                alert("请输入用户名")
+                return false
+            }
+            else{
+                return true
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="sign.html" method="get" onsubmit="return check()">
+
+        <div class="login">
+            <h1>登陆</h1>
+            <input type="text" id="username" placeholder="用户名">
+            <input type="password" id="pw" placeholder="密码">
+            <input type="submit" value="提交">
+        </div>
+
+    </form>
+</body>
+</html>

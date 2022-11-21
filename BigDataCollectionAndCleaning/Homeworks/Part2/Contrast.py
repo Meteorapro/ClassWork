@@ -1,3 +1,4 @@
+import sys
 import urllib.request as request
 from http.client import *
 import re
@@ -63,7 +64,7 @@ def lxml_xpath_scraper(html):
 
 def Write(row):
     fp=open('./data/countries_or_districts.csv','a+',encoding='utf-8',newline='')
-    print(row)
+    # print(row)
     writer = csv.writer(fp)
     writer.writerow(row)
     fp.close()
