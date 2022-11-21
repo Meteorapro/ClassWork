@@ -14,7 +14,7 @@ def f(x,sita):
 
 ## 损失函数
 def loss_function(x,sita,y):
-    return y*np.log(f(x,sita))+(1.0-y)*np.log(1-f(x,sita))
+    return -(y*np.log(f(x,sita))+(1.0-y)*np.log(1-f(x,sita)))
 
 # 读入鸢尾花数据集
 data_iris = pd.read_csv("shuffle.data", header=None)
