@@ -4,7 +4,6 @@
 
 import json
 import zlib
-
 from redis import StrictRedis
 from datetime import timedelta
 
@@ -51,4 +50,3 @@ class RedisCache:
         if self.compress:
             data=zlib.compress(data)
         self.client.setex(url, self.expires, data)
-
