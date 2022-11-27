@@ -18,7 +18,7 @@ class RedisCache:
 
         # 连接到redis,如果没有设置连接，则连接到本地服务器
         if client is None:
-            self.client = StrictRedis(host='localhost', port=6379, password='xujunhao',db=0)
+            self.client = StrictRedis(host='localhost', port=6379, db=0)
         else:
             self.client = client
 
@@ -34,7 +34,7 @@ class RedisCache:
     # 从目标网址的Redis服务器中获取数据
     def __getitem__(self, url):
         # 获取字节数据
-        record = self.client.get()
+        record = self.client.get(url)
         if record:
             # 读取数据之前先解压
             if self.compress:
