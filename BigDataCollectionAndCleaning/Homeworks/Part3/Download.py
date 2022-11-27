@@ -1,7 +1,3 @@
-"""
-    下载器模块
-"""
-
 from BigDataCollectionAndCleaning.CodePPT.Chapter1 import Throttle
 import random
 import requests
@@ -47,20 +43,19 @@ class Downloader:
                 print('Error code:', response.status_code)
                 html=None
                 if self.num_retries > 0:
-                    # 延迟时间
                     delay = 5
                     print(f'Pause for {delay} seconds.')
                     time.sleep(delay)
                     print('Retry to download.')
-                    return self.download(url, headers=headers,proxies=proxies)
-            else:
-                print('encoding:',response.encoding)
-            code=response.status_code
+                    return self.download(url, headers,proxies)
+                else:
+                    print('encoding:',response.encoding)
+                code=response.status_code
 
         except Exception as e:
             print('Download error:', e)
             if hasattr(e, 'code'):
                 print('Error code', e.code)
             html = None
-            code= 404 if response is None else response.status_code
+            code='404' if response is None else response.status_code
         return {'html':html,'code':code}
