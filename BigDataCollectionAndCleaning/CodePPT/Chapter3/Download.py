@@ -35,6 +35,7 @@ class Downloader:
                 self.cache[url]=result
         return result['html']
 
+
     def download(self,url,headers,proxies):
         print('Downloading:', url)
         response=None
@@ -52,6 +53,7 @@ class Downloader:
                     print(f'Pause for {delay} seconds.')
                     time.sleep(delay)
                     print('Retry to download.')
+                    self.num_retries-=1
                     return self.download(url, headers=headers,proxies=proxies)
             else:
                 print('encoding:',response.encoding)

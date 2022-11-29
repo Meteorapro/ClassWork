@@ -19,4 +19,4 @@ hours=int(seconds/3600)
 mins=int(seconds%3600/60)
 secs=seconds%60
 print("Wall time: %d hours %d mins %f secs"%(hours,mins,secs))
-# redis_cache.close()
+redis_cache.close()

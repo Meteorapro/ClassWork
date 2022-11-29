@@ -1,14 +1,19 @@
+"""
+    串行爬虫
+"""
 import BigDataCollectionAndCleaning.CodePPT.Chapter3.Download as Download
 import re,time,requests,socket
 from urllib.parse import urljoin,urlsplit
 from urllib import robotparser
 from AlexaCallback import AlexaCallback
 
+# 返回robots.txt文件的解析
 def get_robots_parse(robots_url):
 
     try:
         rp=robotparser.RobotFileParser()
         rp.set_url(robots_url)
+        # 读取指定文件
         rp.read()
         return rp
     except(UnicodeDecodeError,Exception)as e:
@@ -19,10 +24,14 @@ def get_links(html):
     links = webpage_regex.findall(html)
     return list(filter(lambda link: len(link.strip()) > 0, links))
 
+
 def link_crawler(start_urls,link_regex,scrape_callback=None,delay=5,
                  user_agent='wswp',proxies=None,cache={},
                  num_retries=2):
+    # 网址序列
     crawl_queue=start_urls.copy()
+
+    # 根据列表新建一个集合
     seen=set(crawl_queue)
     rp_dict=dict()
     for start_url in start_urls:
@@ -33,11 +42,14 @@ def link_crawler(start_urls,link_regex,scrape_callback=None,delay=5,
 
     while crawl_queue:
 
+        # 弹出队列首元素，即网址链接
         url = crawl_queue.pop()
         start_url='http://'+urlsplit(url).netloc
+
         rp=rp_dict[start_url]
         no_robots=(rp is None)
 
+        # 如果存在robots.txt文件且其中禁止访问，则跳过下载
         if (not no_robots) and (not rp.can_fetch(user_agent,url)):
             print(f'Skipping:{url}')
             continue

@@ -1,14 +1,20 @@
+"""
+    读取Zip文件模块
+"""
 from zipfile import ZipFile
 from io import BytesIO,TextIOWrapper
 import requests,csv,pprint
 
 class AlexaCallback:
+    # 模块初始化
     def __init__(self,max_urls=500):
         self.max_urls=max_urls
         self.filepath= 'top-1m.csv.zip'
         self.urls=[]
 
+    # 从预先下载的压缩文件中读取数据
     def __call__(self):
+
         # 读取ZIP文件
         with ZipFile(self.filepath) as zf:
             csv_filename=zf.namelist()[0]
