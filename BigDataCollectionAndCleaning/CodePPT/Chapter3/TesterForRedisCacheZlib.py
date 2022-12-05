@@ -5,6 +5,7 @@ import time
 
 url='http://180.201.165.235:8000/places/default/index/0'
 regex = '/places/default/(index|view)/'
+
 # 设置Redis服务器参数
 redis_cli=StrictRedis(host='localhost',port=6379,db=0)
 # 连接服务器
