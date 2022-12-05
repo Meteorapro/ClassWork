@@ -1,7 +1,8 @@
 """
-    多线程爬虫
+    线程池爬虫
 """
 import threading
+from concurrent.futures import ThreadPoolExecutor
 
 import BigDataCollectionAndCleaning.CodePPT.Chapter3.Download as Download
 import re, time, requests, socket
@@ -83,22 +84,32 @@ def threaded_crawler(start_urls, link_regex, scrape_callback=None, delay=5,
                         # 绝对链接加入队列末尾
                         crawl_queue.append(abs_link)
 
+    pool=ThreadPoolExecutor(max_workers=max_threads)
+    futures=[]
+
+    # 线程完成后执行的回调函数
+    def finished(future):
+        # 获取该线程运行结果
+        print(threading.current_thread().name,"---线程完成！")
+        futures.remove(future)
+        print(f'len(futures)={len(futures)}')
+
+
     # 线程部分
-    threads=[]
-    while len(threads)<max_threads and crawl_queue:
+    while len(futures)<max_threads and crawl_queue:
 
         # 开启线程
-        thread=threading.Thread(target=process_queue)
-        print('开启一个新线程：',thread.getName())
-        # 设置守护线程
-        thread.setDaemon(True)
+        future=pool.submit(process_queue)
 
-        thread.start()
-        threads.append(thread)
+        # 线程完成之后需要执行的函数
+        future.add_done_callback(finished)
 
-    for thread in threads:
-        thread.join()
-        print(f'{thread.getName()}:{thread.is_alive()}')
+        futures.append(future)
+        print("向线程池中加入一个新线程！")
+
+    # 关闭线程池
+    pool.shutdown(wait=True)
+
 
 
 if __name__ == "__main__":
