@@ -1,7 +1,7 @@
 """
     串行爬虫
 """
-import BigDataCollectionAndCleaning.CodePPT.Chapter3.Download as Download
+import BigDataCollectionAndCleaning.Code.Chapter3.Download as Download
 import re,time,requests,socket
 from urllib.parse import urljoin,urlsplit
 from urllib import robotparser
@@ -73,9 +73,9 @@ def link_crawler(start_urls,link_regex,scrape_callback=None,delay=5,
 if __name__=="__main__":
     timeout=10
     socket.setdefaulttimeout(timeout)
-    alexa=AlexaCallback(max_urls=10)
+    alexa=AlexaCallback(max_urls=100)
     start_urls=alexa()
-    regex='$'
+    regex='$^'
     start=time.time()
     link_crawler(start_urls,regex,scrape_callback=None,cache={})
     end=time.time()

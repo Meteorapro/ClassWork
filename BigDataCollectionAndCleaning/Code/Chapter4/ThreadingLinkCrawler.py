@@ -3,7 +3,7 @@
 """
 import threading
 
-import BigDataCollectionAndCleaning.CodePPT.Chapter3.Download as Download
+import BigDataCollectionAndCleaning.Code.Chapter3.Download as Download
 import re, time, requests, socket
 from urllib.parse import urljoin, urlsplit
 from urllib import robotparser

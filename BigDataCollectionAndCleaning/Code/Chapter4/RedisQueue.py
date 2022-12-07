@@ -7,7 +7,7 @@ import time
 from urllib.parse import urlsplit, urljoin
 
 from redis import StrictRedis
-from BigDataCollectionAndCleaning.CodePPT.Chapter3.Download import Downloader
+from BigDataCollectionAndCleaning.Code.Chapter3.Download import Downloader
 from AlexaCallback import AlexaCallback
 
 
@@ -156,9 +156,10 @@ def mp_threaded_crawler(start_urls, **kwargs):
 
 
 if __name__ == '__main__':
+
     print(f'我是主进程ID={os.getpid()}')
     socket.setdefaulttimeout(10)
-    alexa = AlexaCallback(max_urls=500)
+    alexa = AlexaCallback(max_urls=100)
     start_urls = alexa()
     print(start_urls)
 

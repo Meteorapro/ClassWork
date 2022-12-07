@@ -2,7 +2,7 @@
     下载器模块
 """
 
-from BigDataCollectionAndCleaning.CodePPT.Chapter1 import Throttle
+from BigDataCollectionAndCleaning.Code.Chapter1 import Throttle
 import random
 import requests
 import time
