@@ -5,11 +5,11 @@ from ..items import CountryOrDistrictItem
 
 class CountryOrDistrictSpider(CrawlSpider):
     name = 'country_or_district'
-    allowed_domains = ['example.python-scraping.com']
-    start_urls = ['http://example.python-scraping.com/']
+    allowed_domains = ['180.201.165.235']
+    start_urls = ['http://180.201.165.235:8000/places/']
 
     rules = (
-        Rule(LinkExtractor(allow=r'/index/'), callback=r'/user/', follow=True),
+        Rule(LinkExtractor(allow=r'/index/',deny=r'/user/'), follow=True),
         Rule(LinkExtractor(allow=r'/view/',deny=r'/user/'),callback='parse_item'),
     )
 
@@ -18,8 +18,6 @@ class CountryOrDistrictSpider(CrawlSpider):
         name_css='tr#places_country_or_district__row td.w2p_fw::text'
         item['name']=response.css(name_css).extract()
         pop_xpath='//tr[@id="places_population__row"]/td[@class="w2p_fw"]/text()'
-        item['population']=response.xpath(pop_xpath).extract
-        #item['domain_id'] = response.xpath('//input[@id="sid"]/@value').get()
-        #item['name'] = response.xpath('//div[@id="name"]').get()
-        #item['description'] = response.xpath('//div[@id="description"]').get()
+        item['population']=response.xpath(pop_xpath).extract()
+        print(item)
         return item
